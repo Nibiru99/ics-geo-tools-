@@ -1,6 +1,6 @@
 # License allocation
 
-Copyright © 2026 Nibiru99.
+Copyright © 2026 David Glowalla.
 
 This repository contains software and research material under two compatible,
 no-charge public licenses. The allocation is path-based.
@@ -40,7 +40,7 @@ Applies to:
 The full legal code is in
 [LICENSES/CC-BY-4.0.txt](LICENSES/CC-BY-4.0.txt).
 
-When redistributing CC BY material, attribute it to **Nibiru99**, link to the
+When redistributing CC BY material, attribute it to **David Glowalla**, link to the
 source repository and license, and indicate whether changes were made.
 
 ## Metadata files

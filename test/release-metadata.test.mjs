@@ -10,6 +10,7 @@ test("release metadata preserves the mixed-license boundary", async () => {
   assert.equal(packageJson.license, "Apache-2.0");
   assert.equal(manifest.software_license, "Apache-2.0");
   assert.equal(manifest.research_material_license, "CC-BY-4.0");
+  assert.equal(manifest.creator, "David Glowalla");
   assert.match(allocation, /src\/\*\*/);
   assert.match(allocation, /fixtures\/\*\*/);
   assert.match(allocation, /results\/\*\*/);
@@ -35,5 +36,8 @@ test("citation and Zenodo metadata identify the software release candidate", asy
   assert.equal(zenodo.upload_type, "software");
   assert.equal(zenodo.version, "0.2.0");
   assert.equal(zenodo.license, "Apache-2.0");
+  assert.equal(zenodo.creators[0].name, "Glowalla, David");
   assert.equal(zenodo.related_identifiers[0].identifier, "10.5281/zenodo.18251363");
+  assert.match(citation, /given-names: "David"/);
+  assert.match(citation, /family-names: "Glowalla"/);
 });

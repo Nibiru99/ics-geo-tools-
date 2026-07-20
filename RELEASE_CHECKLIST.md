@@ -11,11 +11,11 @@
 - [x] documentation, fixtures, and results assigned CC BY 4.0;
 - [x] `CITATION.cff` and `.zenodo.json` prepared;
 - [x] claim and non-claim boundaries documented.
+- [x] official creator attribution confirmed as `David Glowalla`.
 
 ## Before tagging
 
 - [ ] review and merge the draft pull request;
-- [ ] confirm the public attribution identity remains `Nibiru99`;
 - [ ] confirm that every archived fixture is owned or otherwise licensable by
   the repository owner;
 - [ ] regenerate the result from the merged commit;

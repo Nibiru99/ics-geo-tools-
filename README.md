@@ -41,7 +41,7 @@ This is a mixed-license research repository:
   [Creative Commons Attribution 4.0 International](LICENSES/CC-BY-4.0.txt).
 
 See [LICENSES.md](LICENSES.md) for the exact path-level allocation and
-attribution requirements. Copyright © 2026 Nibiru99.
+attribution requirements. Copyright © 2026 David Glowalla.
 
 ## Release state
 

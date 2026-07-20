@@ -4,7 +4,7 @@
   "source_ref": "v0.2.0",
   "software_license": "Apache-2.0",
   "research_material_license": "CC-BY-4.0",
-  "creator": "Nibiru99",
+  "creator": "David Glowalla",
   "runtime": {
     "node": "v24.14.0",
     "npm": "11.9.0",

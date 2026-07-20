@@ -16,6 +16,7 @@ All notable changes to the ICS / GEO Tools research software are recorded here.
 - fresh-checkout verification and canonical result checksum;
 - Apache-2.0 software licensing and CC BY 4.0 research-material licensing;
 - citation, Zenodo metadata, and release checklist.
+- official creator attribution as David Glowalla.
 
 ### Evidence boundary
 

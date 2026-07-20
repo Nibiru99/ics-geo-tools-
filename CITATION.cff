@@ -3,7 +3,8 @@ message: "If you use this software, please cite it using the metadata below."
 title: "ICS / GEO Tools: Experiment 4/4B Metric Replay and GoalProgress Stress Benchmark"
 type: software
 authors:
-  - name: "Nibiru99"
+  - given-names: "David"
+    family-names: "Glowalla"
 version: 0.2.0
 license: Apache-2.0
 repository-code: "https://github.com/Nibiru99/ics-geo-tools-"
