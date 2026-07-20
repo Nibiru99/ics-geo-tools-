@@ -9,6 +9,8 @@ The first reconstruction in this repository concerns ICS v3 Experiments 4 and 4B
 
 The historical packages contain preserved outputs, but their Python entry points are placeholders. This repository therefore does **not** claim to reproduce the original generators. It provides a clean-room metric replay and a new adversarial benchmark with a frozen acceptance contract.
 
+The first robustness extension deliberately preserves a failed preregistered condition: with goal-signal reliability reduced to zero, the patched scorer still selected the expected branch in 64% of tasks, above the frozen 55% ceiling. Other correlated state and penalty features therefore leak part of the answer. A failed hypothesis contract is recorded as a result and does not make the software test suite fail.
+
 ## Run
 
 Requires Node.js 20 or newer. There are no runtime dependencies.

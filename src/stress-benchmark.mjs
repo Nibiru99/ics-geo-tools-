@@ -115,11 +115,84 @@ function evaluate(tasks, mode) {
   };
 }
 
-export function runStressBenchmark({ seedStart = 0, seedCount = 100 } = {}) {
+function evaluateWith(tasks, mode, score, transformRows = rows => rows) {
+  let expectedWins = 0;
+  let validWins = 0;
+  let noopWins = 0;
+  let invalidWins = 0;
+  let expectedRankSum = 0;
+  let expectedMarginSum = 0;
+
+  for (const [taskIndex, task] of tasks.entries()) {
+    const rows = transformRows(task.rows, taskIndex);
+    const ranked = rows
+      .map(row => ({ ...row, score: score(row) }))
+      .sort((a, b) => b.score - a.score || a.branch.localeCompare(b.branch));
+    const top = ranked[0];
+    const expectedRank = ranked.findIndex(row => row.expected_best) + 1;
+    const expectedScore = ranked.find(row => row.expected_best).score;
+    const bestDistractor = Math.max(...ranked.filter(row => !row.expected_best).map(row => row.score));
+    expectedWins += Number(top.expected_best);
+    validWins += Number(top.valid_transform);
+    noopWins += Number(top.branch === "valid_noop" || top.branch === "reorder_only");
+    invalidWins += Number(!top.valid_transform);
+    expectedRankSum += expectedRank;
+    expectedMarginSum += expectedScore - bestDistractor;
+  }
+
+  return {
+    mode,
+    task_count: tasks.length,
+    expected_branch_top1_rate: expectedWins / tasks.length,
+    valid_branch_top1_rate: validWins / tasks.length,
+    noop_win_rate: noopWins / tasks.length,
+    invalid_win_rate: invalidWins / tasks.length,
+    mean_expected_branch_rank: expectedRankSum / tasks.length,
+    mean_expected_margin: expectedMarginSum / tasks.length
+  };
+}
+
+function buildTasks(seedStart, seedCount) {
   const tasks = [];
   for (let seed = seedStart; seed < seedStart + seedCount; seed += 1) {
     ARCHETYPES.forEach((archetype, index) => tasks.push(makeTask(seed, archetype, index)));
   }
+  return tasks;
+}
+
+function fixedGoalNoise(taskIndex, branchIndex) {
+  const random = mulberry32(700001 + taskIndex * 1013 + branchIndex * 7919);
+  return -0.2 + 1.4 * random();
+}
+
+function withGoalReliability(rows, taskIndex, reliability) {
+  return rows.map((row, branchIndex) => ({
+    ...row,
+    goal_progress:
+      reliability * row.goal_progress +
+      (1 - reliability) * fixedGoalNoise(taskIndex, branchIndex)
+  }));
+}
+
+function efficiencyOnlyScore(row) {
+  const usefulDelta =
+    0.38 * row.coherence_gain +
+    0.26 * row.entropy_reduction +
+    0.24 * row.uncertainty_reduction +
+    0.12 * row.compression_gain;
+  return usefulDelta / Math.max(row.transformation_cost, 1e-12);
+}
+
+function coherenceOnlyScore(row) {
+  return row.final_coherence;
+}
+
+function validityCoherenceScore(row) {
+  return 0.75 * Number(row.valid_transform) + 0.25 * row.final_coherence;
+}
+
+export function runStressBenchmark({ seedStart = 0, seedCount = 100 } = {}) {
+  const tasks = buildTasks(seedStart, seedCount);
   const legacy = evaluate(tasks, "legacy");
   const goalProgress = evaluate(tasks, "goal_progress");
   const shuffledGoal = evaluate(tasks, "shuffled_goal");
@@ -134,5 +207,50 @@ export function runStressBenchmark({ seedStart = 0, seedCount = 100 } = {}) {
     shuffled_goal: shuffledGoal,
     improvement_absolute: goalProgress.expected_branch_top1_rate - legacy.expected_branch_top1_rate,
     shuffled_drop_absolute: goalProgress.expected_branch_top1_rate - shuffledGoal.expected_branch_top1_rate
+  };
+}
+
+export function runGoalSignalSweep({
+  seedStart = 0,
+  seedCount = 100,
+  reliabilities = [1, 0.8, 0.6, 0.4, 0.2, 0]
+} = {}) {
+  const tasks = buildTasks(seedStart, seedCount);
+  const points = reliabilities.map(reliability => ({
+    reliability,
+    ...evaluateWith(
+      tasks,
+      `goal_reliability_${reliability.toFixed(1)}`,
+      goalProgressStressScore,
+      (rows, taskIndex) => withGoalReliability(rows, taskIndex, reliability)
+    )
+  }));
+  const baselines = {
+    legacy: evaluateWith(tasks, "legacy", legacyStressScore),
+    efficiency_only: evaluateWith(tasks, "efficiency_only", efficiencyOnlyScore),
+    coherence_only: evaluateWith(tasks, "coherence_only", coherenceOnlyScore),
+    validity_plus_coherence: evaluateWith(tasks, "validity_plus_coherence", validityCoherenceScore)
+  };
+  const pointAt = reliability => points.find(point => point.reliability === reliability);
+  const highReliabilityMean =
+    (pointAt(1).expected_branch_top1_rate + pointAt(0.8).expected_branch_top1_rate) / 2;
+  const bestBaseline = Math.max(...Object.values(baselines).map(x => x.expected_branch_top1_rate));
+  return {
+    benchmark: "ICS-v3-4B-goal-signal-reliability-sweep",
+    specification: "docs/experiment-4b-contract.md",
+    seed_start: seedStart,
+    seed_count: seedCount,
+    task_count: tasks.length,
+    reliabilities,
+    points,
+    baselines,
+    high_reliability_mean_top1: highReliabilityMean,
+    full_to_zero_reliability_drop:
+      pointAt(1).expected_branch_top1_rate - pointAt(0).expected_branch_top1_rate,
+    best_baseline_top1: bestBaseline,
+    full_reliability_advantage_over_best_baseline:
+      pointAt(1).expected_branch_top1_rate - bestBaseline,
+    first_below_0_90:
+      points.find(point => point.expected_branch_top1_rate < 0.90)?.reliability ?? null
   };
 }
