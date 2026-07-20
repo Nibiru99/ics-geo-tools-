@@ -1,0 +1,122 @@
+{
+  "archive": {
+    "exp4": {
+      "archived_rank_mismatches": 0,
+      "branch_count": 18,
+      "expected_branch_top1_rate": 0.3333333333333333,
+      "experiment": "ICS-v3-4",
+      "group_count": 6,
+      "historical_generator_status": "unavailable_placeholder_entry_point",
+      "max_cei_absolute_error": 0,
+      "mean_expected_branch_rank": 1.6666666666666667,
+      "source": "preserved branch rows",
+      "valid_branch_top1_rate": 1
+    },
+    "exp4b": {
+      "archived_rank_mismatches": 0,
+      "branch_count": 18,
+      "expected_branch_top1_rate": 1,
+      "experiment": "ICS-v3-4B",
+      "group_count": 6,
+      "historical_generator_status": "unavailable_placeholder_entry_point",
+      "max_cei_absolute_error": 0,
+      "mean_expected_branch_rank": 1,
+      "source": "preserved branch rows",
+      "valid_branch_top1_rate": 1
+    }
+  },
+  "contract": {
+    "checks": [
+      {
+        "name": "archival_exp4_expected_top1",
+        "pass": true
+      },
+      {
+        "name": "archival_exp4_valid_top1",
+        "pass": true
+      },
+      {
+        "name": "archival_exp4b_expected_top1",
+        "pass": true
+      },
+      {
+        "name": "archival_exp4b_valid_top1",
+        "pass": true
+      },
+      {
+        "name": "archival_cei_replay",
+        "pass": true
+      },
+      {
+        "name": "archival_rank_replay",
+        "pass": true
+      },
+      {
+        "name": "stress_goal_top1",
+        "pass": true
+      },
+      {
+        "name": "stress_improvement",
+        "pass": true
+      },
+      {
+        "name": "stress_noop_rate",
+        "pass": true
+      },
+      {
+        "name": "stress_shuffled_control",
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
+  "evidence_scope": "archival metric replay plus independent synthetic stress benchmark",
+  "reconstruction": "ICS v3 Experiments 4 and 4B",
+  "schema_version": "1.0.0",
+  "stress": {
+    "benchmark": "ICS-v3-4B-clean-room-stress",
+    "goal_progress": {
+      "expected_branch_top1_rate": 1,
+      "invalid_win_rate": 0,
+      "mean_expected_branch_rank": 1,
+      "mean_expected_margin": 0.39004778869185147,
+      "mode": "goal_progress",
+      "noop_win_rate": 0,
+      "task_count": 600,
+      "valid_branch_top1_rate": 1
+    },
+    "improvement_absolute": 1,
+    "legacy": {
+      "expected_branch_top1_rate": 0,
+      "invalid_win_rate": 0,
+      "mean_expected_branch_rank": 2,
+      "mean_expected_margin": -0.12155636221139918,
+      "mode": "legacy",
+      "noop_win_rate": 1,
+      "task_count": 600,
+      "valid_branch_top1_rate": 1
+    },
+    "seed_count": 100,
+    "seed_start": 0,
+    "shuffled_drop_absolute": 1,
+    "shuffled_goal": {
+      "expected_branch_top1_rate": 0,
+      "invalid_win_rate": 0.5,
+      "mean_expected_branch_rank": 2,
+      "mean_expected_margin": -0.14782895657948406,
+      "mode": "shuffled_goal",
+      "noop_win_rate": 0.5,
+      "task_count": 600,
+      "valid_branch_top1_rate": 0.5
+    },
+    "specification": "docs/experiment-4b-contract.md",
+    "task_archetypes": [
+      "pythagorean",
+      "energy",
+      "limit",
+      "division",
+      "equivalence",
+      "retrieval"
+    ]
+  }
+}
