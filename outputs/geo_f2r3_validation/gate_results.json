@@ -1,0 +1,86 @@
+[
+  {
+    "check": "temporal_case_is_deterministic",
+    "measured": 1,
+    "required": 1,
+    "comparison": "minimum",
+    "pass": 1
+  },
+  {
+    "check": "every_trace_has_22_independent_frames",
+    "measured": 352,
+    "required": 352,
+    "comparison": "equality",
+    "pass": 1
+  },
+  {
+    "check": "time_is_strictly_increasing",
+    "measured": 1,
+    "required": 1,
+    "comparison": "minimum",
+    "pass": 1
+  },
+  {
+    "check": "time_gaps_are_positive_and_nonuniform",
+    "measured": 1,
+    "required": 1,
+    "comparison": "minimum",
+    "pass": 1
+  },
+  {
+    "check": "every_trace_has_exactly_two_support_boundary_crossings",
+    "measured": 2,
+    "required": 2,
+    "comparison": "equality_all",
+    "pass": 1
+  },
+  {
+    "check": "overall_fit_valid_fraction_at_least_0_75",
+    "measured": 0.9176136363636364,
+    "required": 0.75,
+    "comparison": "minimum",
+    "pass": 1
+  },
+  {
+    "check": "supported_fit_valid_fraction_at_least_0_90",
+    "measured": 0.9715909090909091,
+    "required": 0.9,
+    "comparison": "minimum",
+    "pass": 1
+  },
+  {
+    "check": "supported_acceptance_at_frozen_threshold_at_least_0_85",
+    "measured": 0.9545454545454546,
+    "required": 0.85,
+    "comparison": "minimum",
+    "pass": 1
+  },
+  {
+    "check": "boundary_acceptance_at_frozen_threshold_at_most_0_65",
+    "measured": 0.5056818181818182,
+    "required": 0.65,
+    "comparison": "maximum",
+    "pass": 1
+  },
+  {
+    "check": "boundary_median_uncertainty_at_least_twice_supported",
+    "measured": 7.409481003953241,
+    "required": 2,
+    "comparison": "minimum",
+    "pass": 1
+  },
+  {
+    "check": "boundary_fit_failures_remain_visible",
+    "measured": -0.10795454545454541,
+    "required": 0,
+    "comparison": "maximum",
+    "pass": 1
+  },
+  {
+    "check": "generator_parameters_do_not_enter_fit_or_uncertainty",
+    "measured": 1,
+    "required": 1,
+    "comparison": "minimum",
+    "pass": 1
+  }
+]
