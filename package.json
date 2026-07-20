@@ -19,6 +19,7 @@
   "scripts": {
     "test": "node --test",
     "reproduce": "node src/run-reconstruction.mjs",
-    "certify:ap-cert-0": "node src/ap-cert-0/run-ap-cert-0.mjs"
+    "certify:ap-cert-0": "node src/ap-cert-0/run-ap-cert-0.mjs",
+    "audit:geo-f2r": "node src/geo-f2r/run-geo-f2r.mjs"
   }
 }
