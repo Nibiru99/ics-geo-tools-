@@ -1,0 +1,28 @@
+{
+  "title": "ICS / GEO Tools: Experiment 4/4B Metric Replay and GoalProgress Stress Benchmark",
+  "description": "Evidence-bounded research software that exactly replays the stored CEI, CEI-4B, ranking, and aggregate metric layer of ICS v3 Experiments 4 and 4B and tests the GoalProgress repair in independent deterministic synthetic benchmarks. A preregistered reliability sweep preserves a failed zero-signal condition caused by correlated-feature leakage. The historical row generator is not included and is not claimed to have been reproduced.",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Nibiru99"
+    }
+  ],
+  "version": "0.2.0",
+  "license": "Apache-2.0",
+  "access_right": "open",
+  "keywords": [
+    "Infinity Counting Sphere",
+    "geometry-addressed symbolic memory",
+    "branch ranking",
+    "goal progress",
+    "reproducible research",
+    "synthetic benchmark"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.18251363",
+      "relation": "isSupplementTo",
+      "scheme": "doi"
+    }
+  ]
+}

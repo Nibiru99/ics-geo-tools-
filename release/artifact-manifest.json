@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "release_candidate": "v0.2.0",
+  "source_ref": "v0.2.0",
+  "software_license": "Apache-2.0",
+  "research_material_license": "CC-BY-4.0",
+  "creator": "Nibiru99",
+  "runtime": {
+    "node": "v24.14.0",
+    "npm": "11.9.0",
+    "runtime_dependencies": []
+  },
+  "verification": {
+    "tests_passed": 5,
+    "execution_integrity_passed": true,
+    "primary_contract_passed": true,
+    "robustness_contract_passed": false,
+    "failed_hypothesis_check": "robustness_zero_signal_bound"
+  },
+  "artifacts": [
+    {
+      "path": "results/ics-v3-exp4-4b-reconstruction.json",
+      "sha256": "59b3cfa099fc82f01415f7d5e66da9a0a4f0798f35702925675da6bfdd17c709"
+    }
+  ],
+  "historical_generator_status": "unavailable_placeholder_entry_point",
+  "publication_state": "draft_not_tagged_not_deposited"
+}
