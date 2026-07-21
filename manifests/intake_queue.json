@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "repository": "Nibiru99/ics-geo-tools-",
+  "entries": [
+    {
+      "id": "geo-x-core-rebuild-v0.1",
+      "family": "GEO_X",
+      "source_id": "GEO_XQ/GEO_X_core_rebuild_v0_1",
+      "public_status": "supported",
+      "intake_status": "candidate",
+      "evidence": "Metric and coordinate correction baseline for apparent geometric anomalies."
+    },
+    {
+      "id": "geo-x-unresolved-benchmarks-v0.2",
+      "family": "GEO_X",
+      "source_id": "GEO_XQ/GEO_X_unresolved_benchmarks_v0_2",
+      "public_status": "supported",
+      "intake_status": "candidate",
+      "evidence": "Runnable coupling benchmark showing that layer communication requires an explicit operator."
+    },
+    {
+      "id": "geo-x-q12r2-noisy-circuit-replication-v1.3",
+      "family": "GEO_X",
+      "source_id": "GEO_XQ/GEO_X_Q12R2_noisy_circuit_replication_v1_3",
+      "public_status": "supported",
+      "intake_status": "candidate",
+      "evidence": "Replication control for the earlier geometry-code co-evolution result."
+    },
+    {
+      "id": "geo-x-q13b-bidirectional-backreaction-v1.0",
+      "family": "GEO_X",
+      "source_id": "GEO_XQ/GEO_X_Q13B_bidirectional_backreaction_v1_0",
+      "public_status": "experimental",
+      "intake_status": "candidate",
+      "evidence": "Causal state-field-state contract with a simple local feedback baseline."
+    },
+    {
+      "id": "ics-ap28-certified-table-version",
+      "family": "ICS_AP",
+      "source_id": "ICS_AP/ICS_AP_Experiment_AP28_Certified_Table_Version",
+      "public_status": "experimental",
+      "intake_status": "candidate",
+      "evidence": "Runnable certificate table implementation for deterministic audit records."
+    },
+    {
+      "id": "ics-ap32-lambda-bound-envelope-search",
+      "family": "ICS_AP",
+      "source_id": "ICS_AP/ICS_AP_Experiment_AP32_Lambda_Bound_Envelope_Search",
+      "public_status": "experimental",
+      "intake_status": "needs_source_review",
+      "evidence": "Candidate deterministic envelope; archived package must be checked for a complete regeneration script."
+    },
+    {
+      "id": "ics-ap57-exact-collision-lemma-test",
+      "family": "ICS_AP",
+      "source_id": "ICS_AP/ICS_AP_Experiment_AP57_Exact_Collision_Lemma_Test",
+      "public_status": "unconfirmed",
+      "intake_status": "quarantined",
+      "evidence": "Held until the documented collision-summary export defect is repaired and rerun."
+    }
+  ]
+}
