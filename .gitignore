@@ -9,7 +9,8 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Reproducible experiment output stays local unless explicitly curated.
+# Reproducible scratch output stays local unless explicitly curated.
 outputs/
 *.npz
 *.npy
+node_modules/
