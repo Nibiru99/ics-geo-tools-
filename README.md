@@ -90,5 +90,15 @@ requirements. Copyright 2026 David Glowalla.
 
 ## Release State
 
-`v0.2.0` is prepared on a draft pull request. It is not yet a tagged release or
-Zenodo deposit. See [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
+Software package `v0.2.0` is available as a
+[GitHub release](https://github.com/Nibiru99/ics-geo-tools-/releases/tag/v0.2.0).
+The current Zenodo record is version `0.2.1`:
+[10.5281/zenodo.23112200](https://doi.org/10.5281/zenodo.23112200).
+Its listed archive is named `ics-geo-tools-v0.2.0-zenodo.zip`; the Zenodo
+record version and software tag are distinct labels.
+
+Cite the version DOI for this deposit, or
+[10.5281/zenodo.23112072](https://doi.org/10.5281/zenodo.23112072)
+for the software series. The related ICS manuscript series is
+[10.5281/zenodo.18251363](https://doi.org/10.5281/zenodo.18251363).
+See [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md) for the release checklist.
