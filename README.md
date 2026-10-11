@@ -92,3 +92,14 @@ requirements. Copyright 2026 David Glowalla.
 
 `v0.2.0` is prepared on a draft pull request. It is not yet a tagged release or
 Zenodo deposit. See [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md).
+
+## ICS Research Studio
+
+The ICS Research Tool / ICS-GEO Tools and **[ICS Research Studio](https://github.com/Nibiru99/ics-research-studio)** are both developed by David Glowalla.
+
+This Tool remains freely available under its recorded licenses: Apache-2.0 for the software, with separately allocated research material. Apache-2.0 permits commercial use; a paid Studio subscription is not required to use this Tool under its license.
+
+The Studio is the separately developed research workbench for ongoing geometry, numerical experimentation and visualization work. Its public page provides evidence links and [company/research access information](https://github.com/Nibiru99/ics-research-studio/blob/main/LICENSING.md). Studio demonstrations and licensing enquiries: [darklightblackwing@gmail.com](mailto:darklightblackwing@gmail.com?subject=ICS%20Research%20Studio%20enquiry).
+
+Availability and differences are defined by the actual documented edition and deliverable. This link does not change the Tool's license, promise feature parity, or publish Studio source.
+
